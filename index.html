@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anil Kumar Chaudhary | Lead Engineer & Front-End Architect</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            cyan: '#06b6d4',
+                            blue: '#3b82f6',
+                            indigo: '#6366f1',
+                            dark: '#0b0f19',
+                            cardDark: '#111827',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glassmorphism {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .light .glassmorphism {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        .light ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        .light ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 dark:bg-slate-950 dark:text-slate-100 light:bg-slate-50 light:text-slate-800 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-cyan-500 text-slate-950 font-semibold px-5 py-3 rounded-xl shadow-2xl flex items-center space-x-2">
+        <i class="fa-solid fa-circle-check text-lg"></i>
+        <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 w-full glassmorphism border-b border-slate-800 dark:border-slate-800 light:border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-slate-950 text-xl shadow-lg group-hover:scale-105 transition-transform">
+                    AK
+                </div>
+                <div>
+                    <span class="font-bold text-lg text-slate-100 dark:text-slate-100 light:text-slate-900 tracking-tight block">Anil Chaudhary</span>
+                    <span class="text-xs text-cyan-400 font-mono block -mt-1">Lead Engineer</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-300 dark:text-slate-300 light:text-slate-600">
+                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+                <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+                <a href="#awards" class="hover:text-cyan-400 transition-colors">Awards</a>
+                <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="hidden md:flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-900 dark:bg-slate-900 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-cyan-400 transition-colors border border-slate-800 dark:border-slate-800 light:border-slate-300" title="Toggle Theme">
+                    <i class="fa-solid fa-moon dark:block hidden"></i>
+                    <i class="fa-solid fa-sun dark:hidden block text-amber-500"></i>
+                </button>
+                <a href="mailto:anilxds11@gmail.com" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-semibold px-5 py-2.5 rounded-xl text-sm shadow-md hover:shadow-cyan-500/20 transition-all transform hover:-translate-y-0.5">
+                    Hire Me
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <div class="flex items-center space-x-3 md:hidden">
+                <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-slate-900 dark:bg-slate-900 light:bg-slate-200 text-slate-300">
+                    <i class="fa-solid fa-moon dark:block hidden"></i>
+                    <i class="fa-solid fa-sun dark:hidden block text-amber-500"></i>
+                </button>
+                <button id="mobile-menu-btn" class="p-2.5 rounded-xl bg-slate-900 text-slate-300 hover:text-cyan-400 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-slate-950/95 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium">About</a>
+            <a href="#skills" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium">Skills</a>
+            <a href="#projects" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium">Projects</a>
+            <a href="#experience" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium">Experience</a>
+            <a href="#awards" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium">Awards</a>
+            <a href="#contact" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium">Contact</a>
+            <a href="mailto:anilxds11@gmail.com" class="block w-full text-center bg-cyan-500 text-slate-950 font-semibold py-2.5 rounded-xl mt-4">Hire Me</a>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-24">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="pt-10 lg:pt-16 pb-12 flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div class="flex-1 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-400 text-sm font-medium">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span>Available for Lead & Architect Roles</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500">Anil Chaudhary</span>
+                </h1>
+                
+                <div class="text-xl sm:text-2xl font-semibold text-slate-300 dark:text-slate-300 light:text-slate-700 h-8">
+                    <span id="typing-text" class="text-cyan-400 border-r-2 border-cyan-400 pr-1"></span>
+                </div>
+
+                <p class="text-slate-400 dark:text-slate-400 light:text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    Over <span class="text-slate-200 dark:text-slate-200 light:text-slate-900 font-semibold">14 years of full-cycle software engineering</span> expertise, specializing in front-end architecture, micro frontends, ReactJS, Next.js, Angular, and full-stack integration (Node.js/PHP).
+                </p>
+
+                <!-- Quick Action Buttons -->
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#projects" class="px-6 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5 flex items-center space-x-2">
+                        <span>Explore Projects</span>
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                    <button onclick="copyToClipboard('anilxds11@gmail.com', 'Email address copied!')" class="px-6 py-3.5 rounded-xl bg-slate-900 dark:bg-slate-900 light:bg-slate-200 hover:bg-slate-800 text-slate-200 dark:text-slate-200 light:text-slate-800 border border-slate-800 dark:border-slate-800 light:border-slate-300 font-semibold text-sm transition-all flex items-center space-x-2">
+                        <i class="fa-regular fa-envelope text-cyan-400"></i>
+                        <span>Copy Email</span>
+                    </button>
+                    <a href="#contact" class="px-6 py-3.5 rounded-xl border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 font-semibold text-sm transition-all">
+                        Contact Direct
+                    </a>
+                </div>
+
+                <!-- Contact Badges -->
+                <div class="pt-4 flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-slate-400">
+                    <span class="flex items-center space-x-2">
+                        <i class="fa-solid fa-location-dot text-cyan-400"></i>
+                        <span>Greater Noida, India</span>
+                    </span>
+                    <button onclick="copyToClipboard('9015122562', 'Phone number copied!')" class="flex items-center space-x-2 hover:text-cyan-400 transition-colors">
+                        <i class="fa-solid fa-phone text-cyan-400"></i>
+                        <span>+91 9015122562</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Showcase Side Card -->
+            <div class="w-full lg:w-96 glassmorphism rounded-3xl p-6 sm:p-8 space-y-6 glow-effect border border-slate-800">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-800 dark:border-slate-800 light:border-slate-200">
+                    <span class="text-xs uppercase font-mono tracking-wider text-slate-400">Career Snapshot</span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 p-4 rounded-2xl border border-slate-800 dark:border-slate-800 light:border-slate-200 text-center">
+                        <div class="text-3xl font-extrabold text-cyan-400">14+</div>
+                        <div class="text-xs text-slate-400 mt-1 font-medium">Years Total Exp.</div>
+                    </div>
+                    <div class="bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 p-4 rounded-2xl border border-slate-800 dark:border-slate-800 light:border-slate-200 text-center">
+                        <div class="text-3xl font-extrabold text-indigo-400">12+</div>
+                        <div class="text-xs text-slate-400 mt-1 font-medium">Front-End Spec.</div>
+                    </div>
+                    <div class="bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 p-4 rounded-2xl border border-slate-800 dark:border-slate-800 light:border-slate-200 text-center">
+                        <div class="text-3xl font-extrabold text-blue-400">3x</div>
+                        <div class="text-xs text-slate-400 mt-1 font-medium">Titan Awards</div>
+                    </div>
+                    <div class="bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 p-4 rounded-2xl border border-slate-800 dark:border-slate-800 light:border-slate-200 text-center">
+                        <div class="text-3xl font-extrabold text-amber-400">10+</div>
+                        <div class="text-xs text-slate-400 mt-1 font-medium">Enterprise Apps</div>
+                    </div>
+                </div>
+
+                <!-- Primary Tech Badges -->
+                <div class="pt-2">
+                    <span class="text-xs font-semibold text-slate-400 block mb-3">CORE ARCHITECTURE</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-medium text-cyan-300">React.js</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-medium text-cyan-300">Next.js</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-medium text-cyan-300">Redux Toolkit</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-medium text-indigo-300">Micro Frontends</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-medium text-blue-300">Angular 14</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-medium text-teal-300">Tailwind CSS</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-medium text-emerald-300">Node.js</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="scroll-mt-24 space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs uppercase font-mono font-bold tracking-widest text-cyan-400">Professional Summary</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold">Building Scalable, High-Impact Web Ecosystems</h3>
+            </div>
+
+            <div class="glassmorphism rounded-3xl p-8 sm:p-10 border border-slate-800 space-y-6 text-slate-300 dark:text-slate-300 light:text-slate-700 leading-relaxed">
+                <p class="text-lg font-normal">
+                    I am a results-driven <strong class="text-slate-100 dark:text-slate-100 light:text-slate-900 font-semibold">Lead Engineer & Front-End Architect</strong> with over 14 years of hands-on experience delivering enterprise-grade admin portals, gaming engines, cashier engines, and consumer websites. 
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 pt-4 text-sm">
+                    <div class="p-5 rounded-2xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 border border-slate-800 dark:border-slate-800 light:border-slate-200 space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-3">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">Modern Architecture</h4>
+                        <p class="text-xs text-slate-400">Pioneered WebView micro front-ends, clean component hierarchies, and optimized global state with Redux Toolkit and Thunk.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 border border-slate-800 dark:border-slate-800 light:border-slate-200 space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-3">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">Team Leadership</h4>
+                        <p class="text-xs text-slate-400">Led multi-developer frontend teams, established coding standards, mentored engineers, and spearheaded UI/UX design revamps.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 border border-slate-800 dark:border-slate-800 light:border-slate-200 space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-3">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">Full-Stack Execution</h4>
+                        <p class="text-xs text-slate-400">Seamless integration between front-end UI and RESTful backend APIs built with Node.js, Express, PHP Laravel, and MySQL/MongoDB.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS MATRIX -->
+        <section id="skills" class="scroll-mt-24 space-y-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <h2 class="text-xs uppercase font-mono font-bold tracking-widest text-cyan-400">Technical Expertise</h2>
+                    <h3 class="text-3xl font-extrabold mt-1">Skills & Tooling</h3>
+                </div>
+                <!-- Search input -->
+                <div class="relative w-full md:w-72">
+                    <input type="text" id="skill-search" placeholder="Search skills (e.g. React, Node)..." class="w-full bg-slate-900 dark:bg-slate-900 light:bg-white border border-slate-800 dark:border-slate-800 light:border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500">
+                    <i class="fa-solid fa-magnifying-glass absolute right-3.5 top-3 text-slate-500 text-sm"></i>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6" id="skills-container">
+                <!-- Front-End Skills Card -->
+                <div class="skill-card glassmorphism rounded-3xl p-6 border border-slate-800 space-y-4">
+                    <div class="flex items-center space-x-3 pb-3 border-b border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-code text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">Front-End Ecosystem</h4>
+                            <span class="text-xs text-slate-400">Core Expertise</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3 pt-2">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">ReactJS / NextJS / Redux Toolkit</span>
+                                <span class="text-cyan-400">95%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-cyan-400 w-[95%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">JavaScript (ES6+) / TypeScript</span>
+                                <span class="text-cyan-400">92%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-cyan-400 w-[92%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">Tailwind CSS / Bootstrap / SCSS</span>
+                                <span class="text-cyan-400">95%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-cyan-400 w-[95%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">Angular 8+ / WebViews</span>
+                                <span class="text-cyan-400">85%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-cyan-400 w-[85%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">Micro Frontends / iFrames</span>
+                                <span class="text-cyan-400">90%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-cyan-400 w-[90%]"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend & Database Card -->
+                <div class="skill-card glassmorphism rounded-3xl p-6 border border-slate-800 space-y-4">
+                    <div class="flex items-center space-x-3 pb-3 border-b border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-server text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">Backend & Databases</h4>
+                            <span class="text-xs text-slate-400">Integration & APIs</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3 pt-2">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">Node.js / Express.js</span>
+                                <span class="text-indigo-400">82%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-indigo-400 w-[82%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">RESTful API Design</span>
+                                <span class="text-indigo-400">90%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-indigo-400 w-[90%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">PHP / Laravel</span>
+                                <span class="text-indigo-400">75%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-indigo-400 w-[75%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">MongoDB / MySQL</span>
+                                <span class="text-indigo-400">78%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-indigo-400 w-[78%]"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Methodologies Card -->
+                <div class="skill-card glassmorphism rounded-3xl p-6 border border-slate-800 space-y-4">
+                    <div class="flex items-center space-x-3 pb-3 border-b border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-list-check text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">DevOps & Tooling</h4>
+                            <span class="text-xs text-slate-400">Workflow & Delivery</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3 pt-2">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">Git / GitHub / Version Control</span>
+                                <span class="text-emerald-400">92%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-emerald-400 w-[92%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">Agile / Scrum / Jira</span>
+                                <span class="text-emerald-400">90%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-emerald-400 w-[90%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">CI/CD Pipelines (Jenkins)</span>
+                                <span class="text-emerald-400">80%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-emerald-400 w-[80%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="skill-item">Figma / UI Design Handoff</span>
+                                <span class="text-emerald-400">85%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-800"><div class="h-2 rounded-full bg-emerald-400 w-[85%]"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS -->
+        <section id="projects" class="scroll-mt-24 space-y-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <h2 class="text-xs uppercase font-mono font-bold tracking-widest text-cyan-400">Portfolio Showcase</h2>
+                    <h3 class="text-3xl font-extrabold mt-1">Featured Enterprise Projects</h3>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap gap-2" id="project-filters">
+                    <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-cyan-500 text-slate-950 transition-all">All Projects</button>
+                    <button data-filter="react" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800 transition-all">React / Next</button>
+                    <button data-filter="angular" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800 transition-all">Angular</button>
+                    <button data-filter="node" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800 transition-all">Node / Fullstack</button>
+                </div>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+                
+                <!-- Project 1: Repcard Admin Panel -->
+                <div class="project-card glassmorphism rounded-3xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 flex flex-col" data-category="react">
+                    <div class="h-48 bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 p-6 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all"></div>
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-semibold border border-cyan-500/30">Repcard Pvt. Ltd.</span>
+                            <i class="fa-solid fa-chart-line text-cyan-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100">Repcard Analytics & Admin Suite</h4>
+                    </div>
+                    <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                        <p class="text-xs text-slate-400 line-clamp-3 leading-relaxed">
+                            Comprehensive admin revamp engineered with ReactJS, Redux Toolkit, and Tailwind CSS. Built custom usage analytics, profile controls, and real-time report generation dashboards.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-cyan-300">ReactJS</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-cyan-300">Redux Toolkit</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-cyan-300">Tailwind CSS</span>
+                            </div>
+                            <button onclick="openModal('project-1')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-400 font-semibold text-xs border border-slate-800 transition-all">
+                                View Details & Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Deltatech Mobile Cashier Module -->
+                <div class="project-card glassmorphism rounded-3xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 flex flex-col" data-category="angular">
+                    <div class="h-48 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-6 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-all"></div>
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-semibold border border-indigo-500/30">Deltatech Gaming</span>
+                            <i class="fa-solid fa-wallet text-indigo-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100">Mobile Cashier Engine</h4>
+                    </div>
+                    <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                        <p class="text-xs text-slate-400 line-clamp-3 leading-relaxed">
+                            Angular 14 powered cashier system seamlessly embedded into a mobile app via WebView/iframe. Handles withdrawals, deposit gateways, user stats, and contests.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-indigo-300">Angular 14</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-indigo-300">Node.js</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-indigo-300">WebView</span>
+                            </div>
+                            <button onclick="openModal('project-2')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-indigo-400 font-semibold text-xs border border-slate-800 transition-all">
+                                View Details & Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Adda52 Platform Revamp -->
+                <div class="project-card glassmorphism rounded-3xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 flex flex-col" data-category="node">
+                    <div class="h-48 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 p-6 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold border border-blue-500/30">Adda52 Gaming</span>
+                            <i class="fa-solid fa-gamepad text-blue-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100">Adda52 Backend & CMS Migration</h4>
+                    </div>
+                    <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                        <p class="text-xs text-slate-400 line-clamp-3 leading-relaxed">
+                            Architected backend migration from legacy PHP to Node.js with EJS templating. Built CMS tools, unified login systems, and promotion/referral engines.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-blue-300">Node.js</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-blue-300">Express</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-blue-300">SEO / EJS</span>
+                            </div>
+                            <button onclick="openModal('project-3')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-blue-400 font-semibold text-xs border border-slate-800 transition-all">
+                                View Details & Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Interactive Enterprise Campaigns -->
+                <div class="project-card glassmorphism rounded-3xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 flex flex-col" data-category="react">
+                    <div class="h-48 bg-gradient-to-br from-slate-900 via-amber-950 to-slate-900 p-6 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold border border-amber-500/30">Interactive Avenues</span>
+                            <i class="fa-solid fa-globe text-amber-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100">Global Brand Portals</h4>
+                    </div>
+                    <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                        <p class="text-xs text-slate-400 line-clamp-3 leading-relaxed">
+                            Built high-performance mobile-first web components for major enterprise clients including Asian Paints, Coca-Cola India, Micromax, and NIIT using AMP & HTML5.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-amber-300">AMP</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-amber-300">HTML5/CSS3</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-amber-300">WCAG Compliant</span>
+                            </div>
+                            <button onclick="openModal('project-4')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 font-semibold text-xs border border-slate-800 transition-all">
+                                View Details & Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Multi-Role Admin & CRM Suite -->
+                <div class="project-card glassmorphism rounded-3xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 flex flex-col" data-category="react">
+                    <div class="h-48 bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900 p-6 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl group-hover:bg-teal-500/20 transition-all"></div>
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 text-xs font-semibold border border-teal-500/30">Deltatech Gaming</span>
+                            <i class="fa-solid fa-users-gear text-teal-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100">Role-Based Gaming CRM Suite</h4>
+                    </div>
+                    <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                        <p class="text-xs text-slate-400 line-clamp-3 leading-relaxed">
+                            Developed modular multi-role CRM panels for user support ticketing, bonus disbursements, user segmentation, and real-time moderation flows.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-teal-300">ReactJS</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-teal-300">Redux</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-teal-300">RBAC Security</span>
+                            </div>
+                            <button onclick="openModal('project-5')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-teal-400 font-semibold text-xs border border-slate-800 transition-all">
+                                View Details & Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Smart School Interactive Modules -->
+                <div class="project-card glassmorphism rounded-3xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 flex flex-col" data-category="node">
+                    <div class="h-48 bg-gradient-to-br from-slate-900 via-rose-950 to-slate-900 p-6 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-rose-500/10 rounded-full blur-2xl group-hover:bg-rose-500/20 transition-all"></div>
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-semibold border border-rose-500/30">Smart School Edu</span>
+                            <i class="fa-solid fa-graduation-cap text-rose-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100">Interactive eLearning Modules</h4>
+                    </div>
+                    <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                        <p class="text-xs text-slate-400 line-clamp-3 leading-relaxed">
+                            Interactive e-learning animations, subject games (Math/EVS), custom media audio-synced players, and educational content delivery engines.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-rose-300">Interactive UI</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-rose-300">Animation Engine</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-rose-300">Media Sync</span>
+                            </div>
+                            <button onclick="openModal('project-6')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-rose-400 font-semibold text-xs border border-slate-800 transition-all">
+                                View Details & Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CAREER EXPERIENCE TIMELINE -->
+        <section id="experience" class="scroll-mt-24 space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs uppercase font-mono font-bold tracking-widest text-cyan-400">Career Trajectory</h2>
+                <h3 class="text-3xl font-extrabold">Professional Work History</h3>
+            </div>
+
+            <div class="relative border-l-2 border-slate-800 ml-4 md:ml-32 space-y-12">
+                
+                <!-- Experience Item 1 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-briefcase text-xs"></i>
+                    </div>
+                    <div class="hidden md:block absolute -left-36 top-2 text-xs font-mono text-cyan-400 font-semibold w-28 text-right">
+                        2023 - 2025
+                    </div>
+                    <div class="glassmorphism rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-100">Lead Engineer</h4>
+                                <span class="text-sm text-cyan-400 font-medium">Repcard Pvt. Ltd., Gurugram</span>
+                            </div>
+                            <span class="md:hidden text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded-full border border-cyan-500/30">Dec 2023 - Jul 2025</span>
+                        </div>
+                        <ul class="list-disc list-inside text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed">
+                            <li>Revamped the core Admin Panel using ReactJS and Tailwind CSS, introducing real-time usage analytics and report generators.</li>
+                            <li>Integrated Redux Toolkit and Thunk for scalable state management across multi-browser deployments.</li>
+                            <li>Designed RESTful APIs and directed the front-end team in adopting modern micro front-end principles.</li>
+                            <li>Mentored software developers on state design, clean code architecture, and optimized API integrations.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-2 border-indigo-400 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-briefcase text-xs"></i>
+                    </div>
+                    <div class="hidden md:block absolute -left-36 top-2 text-xs font-mono text-indigo-400 font-semibold w-28 text-right">
+                        2016 - 2023
+                    </div>
+                    <div class="glassmorphism rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-100">Lead Engineer</h4>
+                                <span class="text-sm text-indigo-400 font-medium">Deltatech Gaming Ltd., Gurugram</span>
+                            </div>
+                            <span class="md:hidden text-xs font-mono text-indigo-400 bg-indigo-950/60 px-2.5 py-1 rounded-full border border-indigo-500/30">Nov 2016 - Sep 2023</span>
+                        </div>
+                        <ul class="list-disc list-inside text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed">
+                            <li>Architected micro front-end WebView applications enabling smooth embedded modules inside mobile applications.</li>
+                            <li>Built an Angular 14 Cashier System featuring real-time financial withdrawals, add money flows, and user leaderboards.</li>
+                            <li>Implemented Node.js and TypeScript backend APIs supporting high-throughput gaming interactions.</li>
+                            <li>Awarded <strong class="text-amber-400">Titan of the Month 3 times</strong> for key contributions to frontend architecture.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-2 border-blue-400 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-briefcase text-xs"></i>
+                    </div>
+                    <div class="hidden md:block absolute -left-36 top-2 text-xs font-mono text-blue-400 font-semibold w-28 text-right">
+                        2015 - 2016
+                    </div>
+                    <div class="glassmorphism rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-100">Senior Front-End Developer</h4>
+                                <span class="text-sm text-blue-400 font-medium">Interactive Avenues Pvt. Ltd.</span>
+                            </div>
+                            <span class="md:hidden text-xs font-mono text-blue-400 bg-blue-950/60 px-2.5 py-1 rounded-full border border-blue-500/30">Nov 2015 - Nov 2016</span>
+                        </div>
+                        <ul class="list-disc list-inside text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed">
+                            <li>Engineered mobile-first digital solutions for clients including Asian Paints, Coca-Cola India, Micromax, and NIIT.</li>
+                            <li>Integrated Google AMP, HTML5/CSS3, and pixel-perfect responsive component frameworks.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 4 & 5 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-2 border-slate-600 flex items-center justify-center text-slate-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-clock-rotate-left text-xs"></i>
+                    </div>
+                    <div class="hidden md:block absolute -left-36 top-2 text-xs font-mono text-slate-400 font-semibold w-28 text-right">
+                        2010 - 2015
+                    </div>
+                    <div class="glassmorphism rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-4">
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-200">Tech Lead & Earlier Roles</h4>
+                            <span class="text-xs text-slate-400">Virtual Employee & Smart School Education</span>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Pioneered front-end development using SCSS, Bootstrap, and JavaScript at Virtual Employee (2012-2015). Began software career creating interactive e-learning modules and media games at Smart School Education (2010-2012).
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- AWARDS & EDUCATION -->
+        <section id="awards" class="scroll-mt-24 grid md:grid-cols-2 gap-8">
+            <!-- Awards -->
+            <div class="glassmorphism rounded-3xl p-8 border border-slate-800 space-y-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Honors & Recognitions</h3>
+                        <span class="text-xs text-slate-400">Deltatech Gaming Excellence</span>
+                    </div>
+                </div>
+                
+                <div class="p-5 rounded-2xl bg-slate-900/80 border border-amber-500/20 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-amber-300 text-sm">Titan of the Month</span>
+                        <span class="text-xs font-mono bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded">3x Awardee</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Awarded three times (2017, 2018, 2019) for exceptional performance, strong ownership of key deliverables, and leadership in front-end architecture.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="glassmorphism rounded-3xl p-8 border border-slate-800 space-y-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Education & Credentials</h3>
+                        <span class="text-xs text-slate-400">Academic Background</span>
+                    </div>
+                </div>
+
+                <div class="space-y-3 text-xs">
+                    <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 flex justify-between items-center">
+                        <div>
+                            <div class="font-bold text-slate-200">PGDM - Diploma</div>
+                            <div class="text-slate-400">Gorakhpur (Multimedia & UI Design)</div>
+                        </div>
+                        <span class="font-mono text-cyan-400 font-semibold">2009</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 flex justify-between items-center">
+                        <div>
+                            <div class="font-bold text-slate-200">PGDCA - Post Graduate Diploma</div>
+                            <div class="text-slate-400">Gorakhpur (Computer Applications)</div>
+                        </div>
+                        <span class="font-mono text-cyan-400 font-semibold">2007</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 flex justify-between items-center">
+                        <div>
+                            <div class="font-bold text-slate-200">B.A. (Economics)</div>
+                            <div class="text-slate-400">DDU Gorakhpur University</div>
+                        </div>
+                        <span class="font-mono text-cyan-400 font-semibold">2005</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="scroll-mt-24 space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs uppercase font-mono font-bold tracking-widest text-cyan-400">Get In Touch</h2>
+                <h3 class="text-3xl font-extrabold">Let's Discuss Your Next Product</h3>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-8">
+                <!-- Info Panel -->
+                <div class="lg:col-span-2 glassmorphism rounded-3xl p-8 border border-slate-800 space-y-6 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold">Contact Information</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Interested in hiring a Lead Engineer or discussing front-end architecture consulting? Feel free to reach out via email or telephone directly.
+                        </p>
+
+                        <div class="space-y-4 text-sm">
+                            <div onclick="copyToClipboard('anilxds11@gmail.com', 'Email copied to clipboard!')" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center space-x-3 cursor-pointer hover:border-cyan-500/50 transition-all">
+                                <i class="fa-solid fa-envelope text-cyan-400 text-lg"></i>
+                                <div>
+                                    <div class="text-xs text-slate-500 font-medium">Direct Email</div>
+                                    <div class="font-semibold text-slate-200">anilxds11@gmail.com</div>
+                                </div>
+                            </div>
+
+                            <div onclick="copyToClipboard('9015122562', 'Phone number copied!')" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center space-x-3 cursor-pointer hover:border-cyan-500/50 transition-all">
+                                <i class="fa-solid fa-phone text-cyan-400 text-lg"></i>
+                                <div>
+                                    <div class="text-xs text-slate-500 font-medium">Phone Number</div>
+                                    <div class="font-semibold text-slate-200">+91 9015122562</div>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center space-x-3">
+                                <i class="fa-solid fa-location-dot text-cyan-400 text-lg"></i>
+                                <div>
+                                    <div class="text-xs text-slate-500 font-medium">Location</div>
+                                    <div class="font-semibold text-slate-200">Greater Noida, India (201306)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-800 flex justify-center space-x-4">
+                        <a href="mailto:anilxds11@gmail.com" class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-400 transition-all">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                        <a href="tel:9015122562" class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-400 transition-all">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form Panel -->
+                <div class="lg:col-span-3 glassmorphism rounded-3xl p-8 border border-slate-800">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1.5">Your Name</label>
+                                <input type="text" required placeholder="John Doe" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-cyan-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1.5">Your Email</label>
+                                <input type="email" required placeholder="john@company.com" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-cyan-500">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Subject</label>
+                            <input type="text" required placeholder="Project Inquiry / Job Opportunity" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-cyan-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Message</label>
+                            <textarea rows="4" required placeholder="Hi Anil, I'd like to discuss a project..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-cyan-500 resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20 transition-all">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 dark:border-slate-800 light:border-slate-200 py-8 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <div>
+                © <span id="current-year">2026</span> Anil Kumar Chaudhary. All Rights Reserved.
+            </div>
+            <div>
+                Hosted with <i class="fa-solid fa-heart text-red-500 mx-1"></i> on GitHub Pages
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROJECT MODAL POPUP -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="glassmorphism rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 border border-slate-700 space-y-6 relative animate-in fade-in zoom-in-95 duration-200">
+            <button onclick="closeModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-slate-100 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="modal-content" class="space-y-4">
+                <!-- Content dynamically injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT INTERACTION LOGIC -->
+    <script>
+        // Set dynamic current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Theme Switcher Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.remove('light');
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+
+        // Mobile Menu Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Typing Effect in Hero Section
+        const titles = [
+            "Lead Front-End Architect",
+            "React.js & Next.js Specialist",
+            "Micro Front-End Strategist",
+            "Full-Stack Web Engineer"
+        ];
+        let titleIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        const typingSpeed = 100;
+        const typingTextElement = document.getElementById('typing-text');
+
+        function typeEffect() {
+            const currentTitle = titles[titleIdx];
+            if (isDeleting) {
+                typingTextElement.textContent = currentTitle.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                typingTextElement.textContent = currentTitle.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let delta = typingSpeed;
+
+            if (!isDeleting && charIdx === currentTitle.length) {
+                delta = 2000; // Pause at full word
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                titleIdx = (titleIdx + 1) % titles.length;
+                delta = 500;
+            }
+
+            setTimeout(typeEffect, delta);
+        }
+
+        document.addEventListener('DOMContentLoaded', typeEffect);
+
+        // Toast Notification System
+        function copyToClipboard(text, message) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(message);
+            }).catch(() => {
+                // Fallback for copy
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast(message);
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Skill Search Filtering
+        const skillSearchInput = document.getElementById('skill-search');
+        skillSearchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const skillCards = document.querySelectorAll('.skill-card');
+
+            skillCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(term)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Portfolio Project Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-cyan-500', 'text-slate-950');
+                    b.classList.add('bg-slate-900', 'text-slate-400');
+                });
+                btn.classList.add('bg-cyan-500', 'text-slate-950');
+                btn.classList.remove('bg-slate-900', 'text-slate-400');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Project Modal Dialog Details
+        const projectData = {
+            'project-1': {
+                title: 'Repcard Admin & Analytics Suite',
+                company: 'Repcard Pvt. Ltd.',
+                period: '2023 - 2025',
+                desc: 'Led complete front-end redesign and client architecture revamp of the primary administrative application. Engineered responsive dashboards, multi-tenant analytics, user management, and report generators.',
+                points: [
+                    'Built with ReactJS, Redux Toolkit, and Tailwind CSS.',
+                    'Introduced clean architectural patterns with reusable component libraries.',
+                    'Optimized state handling and REST API call frequencies, reducing page render latencies by 35%.',
+                    'Mentored front-end engineers in clean architecture and state management.'
+                ],
+                tags: ['ReactJS', 'Redux Toolkit', 'Tailwind CSS', 'REST API', 'Agile']
+            },
+            'project-2': {
+                title: 'Mobile App Cashier Engine (WebView)',
+                company: 'Deltatech Gaming Ltd.',
+                period: '2016 - 2023',
+                desc: 'Designed and implemented an Angular 14-based cashier application embedded directly inside a native mobile application using WebViews and iframe wrappers.',
+                points: [
+                    'Includes modules for Add Money, Withdrawals, User Stats, Referral systems, and Contests.',
+                    'Engineered backend integration using Node.js and Express in TypeScript.',
+                    'Delivered high-security transaction processing and smooth 60fps webview UI performance.',
+                    'Maintained cross-browser and mobile device compatibility across both iOS and Android views.'
+                ],
+                tags: ['Angular 14', 'Node.js', 'Express', 'TypeScript', 'Iframe/WebView']
+            },
+            'project-3': {
+                title: 'Adda52 Website & CMS Platform Migration',
+                company: 'Deltatech Gaming Ltd.',
+                period: '2016 - 2023',
+                desc: 'Spearheaded migration of legacy PHP backend system into a modern, scalable Node.js architecture with server-side rendered EJS templates.',
+                points: [
+                    'Built unified login/signup systems and automated promotion engines.',
+                    'Optimized page load speed and SEO performance to comply with Web Vitals.',
+                    'Integrated content management systems for marketing and referral operations.'
+                ],
+                tags: ['Node.js', 'EJS Templating', 'PHP Migration', 'SEO Optimization']
+            },
+            'project-4': {
+                title: 'Global Brand Portals & Campaigns',
+                company: 'Interactive Avenues Pvt. Ltd.',
+                period: '2015 - 2016',
+                desc: 'Created responsive, pixel-perfect web properties for tier-1 enterprises including Asian Paints, Coca-Cola India, Micromax, and NIIT.',
+                points: [
+                    'Utilized Google AMP for ultra-fast mobile loading.',
+                    'Ensured WCAG compliance and multi-browser rendering consistency.',
+                    'Collaborated directly with client UI/UX teams to realize interactive brand campaigns.'
+                ],
+                tags: ['Google AMP', 'HTML5', 'CSS3', 'JavaScript', 'Responsive UI']
+            },
+            'project-5': {
+                title: 'Role-Based Gaming CRM Suite',
+                company: 'Deltatech Gaming Ltd.',
+                period: '2016 - 2023',
+                desc: 'Designed modular CRM tools powering internal support operations, user verification, bonus disbursements, and ticket management.',
+                points: [
+                    'Role-based Access Control (RBAC) frontend logic.',
+                    'Fast feature rollout architecture built with React and Redux.',
+                    'Reduced internal user onboarding time by streamlining UI layouts.'
+                ],
+                tags: ['ReactJS', 'Redux', 'RBAC', 'CRM Architecture']
+            },
+            'project-6': {
+                title: 'Interactive eLearning & Media Engine',
+                company: 'Smart School Education',
+                period: '2010 - 2012',
+                desc: 'Engineered educational games and audio-synchronized interactive learning modules for Math and EVS subjects.',
+                points: [
+                    'Built audio-visual synchronization engines for interactive storytelling.',
+                    'Developed custom media players and educational website portals.'
+                ],
+                tags: ['Interactive Media', 'UI Animation', 'Content Delivery']
+            }
+        };
+
+        function openModal(projectId) {
+            const modal = document.getElementById('project-modal');
+            const content = document.getElementById('modal-content');
+            const data = projectData[projectId];
+
+            if (!data) return;
+
+            content.innerHTML = `
+                <div class="space-y-1">
+                    <span class="text-xs font-mono text-cyan-400 font-semibold">${data.company} • ${data.period}</span>
+                    <h3 class="text-2xl font-bold text-slate-100">${data.title}</h3>
+                </div>
+                <p class="text-sm text-slate-300 leading-relaxed">${data.desc}</p>
+                <div class="space-y-2">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Key Highlights</h4>
+                    <ul class="list-disc list-inside text-xs text-slate-300 space-y-1.5">
+                        ${data.points.map(pt => `<li>${pt}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="pt-2">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Technologies Used</h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${data.tags.map(t => `<span class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs text-cyan-300 font-medium">${t}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('project-modal').classList.add('hidden');
+        }
+
+        // Form Submission Handling
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            showToast("Message sent successfully! (Simulation)");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
